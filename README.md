@@ -19,19 +19,26 @@ Form Validation
 Bagian 2: Server-side Programming (Bobot: 30%)
 2.1 Pengelolaan Data dengan PHP (20%)
 Gunakan metode POST atau GET pada formulir.
+![image](https://github.com/user-attachments/assets/a0546560-ab29-47a7-9cea-3e6c494e5eab)
+
 Parsing data dari variabel global dan lakukan validasi di sisi server.
 Simpan ke basis data termasuk jenis browser dan alamat IP pengguna.
 Pengelolaan Data dengan PHP
+
 2.2 Objek PHP Berbasis OOP (10%)
 Buat sebuah objek PHP berbasis OOP yang memiliki minimal dua metode dan gunakan objek tersebut dalam skenario tertentu.
 Class Mahasiswa
 Bagian 3: Database Management (Bobot: 20%)
+
 3.1 Pembuatan Tabel Database (5%)
 Class Mahasiswa
+
 3.2 Konfigurasi Koneksi Database (5%)
 Koneksi DB
+
 3.3 Manipulasi Data pada Database (10%)
 Class Mahasiswa
+
 Bagian 4: State Management (Bobot: 20%)
 4.1 State Management dengan Session (10%)
 Gunakan session_start() untuk memulai session.
@@ -42,6 +49,7 @@ Buat fungsi untuk menetapkan, mendapatkan, dan menghapus cookie.
 Cookie JavaScript
 Gunakan browser storage untuk menyimpan informasi secara lokal.
 Browser Storage JavaScript
+
 Bagian Bonus: Hosting Aplikasi Web (Bobot: 20%)
 (5%) Apa langkah-langkah yang Anda lakukan untuk meng-host aplikasi web Anda?
 (5%) Pilih penyedia hosting web yang menurut Anda paling cocok untuk aplikasi web Anda.
