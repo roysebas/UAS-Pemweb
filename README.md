@@ -1,7 +1,9 @@
 **UAS PEMWEB**
 
 **Bagian 1: Client-side Programming (Bobot: 30%)**
+
 **1.1 Manipulasi DOM dengan JavaScript (15%)**
+
 Buat form input dengan minimal 4 elemen input (teks, checkbox, radio, dll.)
 ```
 body>
@@ -44,12 +46,73 @@ Tampilkan data dari server ke dalam sebuah tabel HTML.
 ![image](https://github.com/user-attachments/assets/dc32b81f-963e-4edb-89fa-42f498170043)
 
 **Manipulasi DOM dengan JavaScript**
+
 **1.2 Event Handling (15%)**
+
 Tambahkan minimal 3 event yang berbeda untuk meng-handle form pada 1.1.
 Implementasikan JavaScript untuk validasi setiap input sebelum diproses oleh PHP.
-![image](https://github.com/user-attachments/assets/47da5943-389d-4194-bb42-e1726323dbe0)
+```
+<script>
+        $(function () {
+            // Event handling for form submission
+            $('#registerForm').on('submit', function(e) {
+                e.preventDefault(); // Prevent default form submission
 
-![image](https://github.com/user-attachments/assets/3694736b-bd61-42e9-a643-5c03ceaa30dc)
+                var valid = this.checkValidity();
+
+                if (valid) {
+                    var username = $('#username').val();
+                    var email = $('#email').val();
+                    var password = $('#password').val();
+                    var gender = $('#gender').val();
+                    var terms = $('#terms').is(':checked') ? 'Accepted' : 'Not Accepted';
+
+                    $.ajax({
+                        url: 'proses.php',
+                        type: 'post',
+                        data: {
+                            username: username,
+                            email: email,
+                            password: password,
+                            gender: gender,
+                            terms: terms
+                        },
+                        success: function(data) {
+                            Swal.fire({
+                                'title': 'Selamat!',
+                                'text': data,
+                                'icon': 'success'
+                            });
+                        },
+                        error: function(data) {
+                            Swal.fire({
+                                'title': 'Error!',
+                                'text': 'Data gagal disimpan',
+                                'icon': 'error'
+                            });
+                        }
+                    });
+                } else {
+                    Swal.fire({
+                        'title': 'Error!',
+                        'text': 'Form tidak valid',
+                        'icon': 'error'
+                    });
+                }
+            });
+
+            // Event handling for input change
+            $('#username, #email, #password, #gender').on('input change', function() {
+                console.log('Input changed: ', $(this).attr('id'), $(this).val());
+            });
+
+            // Event handling for button click
+            $('#register').on('click', function() {
+                console.log('Register button clicked');
+            });
+        });
+    </script>
+```
 
 
 **Form Validation**
@@ -98,6 +161,7 @@ Buat sebuah objek PHP berbasis OOP yang memiliki minimal dua metode dan gunakan 
 Class Mahasiswa
 
 **Bagian 3: Database Management (Bobot: 20%)**
+
 **3.1 Pembuatan Tabel Database (5%)**
 
 
