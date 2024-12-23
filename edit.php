@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <ul>
                     <li><a href="profil.php">Profil</a></li>
                     <li><a href="home.php">Home</a></li>
-                    <li><a href="tambah.php">Tambah Postingan</a></li>
+                    <!-- <li><a href="tambah.php">Tambah Postingan</a></li> -->
                     <li><a href="home.php?logout" onclick="return confirmLogout();">Keluar</a></li>
                 </ul>
             </nav>

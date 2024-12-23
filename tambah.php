@@ -13,9 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_FILES['post-image']) && $_FILES['post-image']['error'] === UPLOAD_ERR_OK) {
         $imagePath = 'uploads/' . basename($_FILES['post-image']['name']);
-        if (!move_uploaded_file($_FILES['post-image']['tmp_name'], $imagePath)) {
-            die('Failed to move uploaded file.');
-        }
+        move_uploaded_file($_FILES['post-image']['tmp_name'], $imagePath);
     }
 
     $postController->store($content, $imagePath);
@@ -44,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <ul>
                     <li><a href="profil.php">Profil</a></li>
                     <li><a href="home.php">Home</a></li>
-                    <li><a href="tambah.php">Tambah Postingan</a></li>
+                    <!-- <li><a href="tambah.php">Tambah Postingan</a></li> -->
                     <li><a href="home.php?logout" onclick="return confirmLogout();">Keluar</a></li>
                 </ul>
             </nav>
