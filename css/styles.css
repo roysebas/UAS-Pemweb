@@ -1,0 +1,374 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Latar belakang semi-transparan */
+    border-radius: 10px; /* Border radius yang lebih besar */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Bayangan */
+    backdrop-filter: blur(10px); /* Efek blur */
+}
+
+.form-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Memastikan padding tidak memengaruhi lebar elemen */
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.radio-group label {
+    margin-right: 10px;
+}
+
+.checkbox-group {
+    margin: 10px 0;
+    display: flex;
+    align-items: center; /* Untuk menyelaraskan label dengan checkbox */
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #4cae4c;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.dashboard-container {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 100%;
+    max-width: 175px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    flex: 1 1 250px;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    margin: 10px 0;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    flex: 3 1 700px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.posts .post {
+    background: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.post-profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-user-info h3 {
+    margin: 0;
+}
+
+.post-user-info p {
+    margin: 0;
+    color: gray;
+}
+
+.add-post {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-post h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.add-post textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.add-post button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-post button:hover {
+    background-color: #2980b9;
+}
+
+.sidebar .profile h2, .sidebar .profile p {
+    margin-top: -18px;
+}
+
+.sidebar .profile h2 {
+    font-size: 20px; /* Mengubah ukuran teks untuk nama pengguna di profil */
+}
+
+.sidebar .profile p {
+    font-size: 13px; /* Mengubah ukuran teks untuk username di profil */
+}
+
+.menu a {
+    font-size: 17px; /* Mengubah ukuran teks untuk menu */
+}
+
+.profile-section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.profile-table th, .profile-table td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        max-width: none;
+        flex: 1 1 100%;
+    }
+
+    .content {
+        flex: 1 1 100%;
+    }
+}
+
+/* Add these styles to the end of styles.css */
+
+.edit-post {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    margin: 20px auto;
+}
+
+.edit-post textarea {
+    width: 96%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.edit-post input[type="file"] {
+    margin-bottom: 10px;
+}
+
+.edit-post button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.edit-post button:hover {
+    background-color: #2980b9;
+}
+
+.edit-post .post-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Add these styles to the end of styles.css */
+
+.posts {
+    margin: 20px auto;
+    max-width: 75%;
+}
+
+.post {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.post-profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-user-info h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.post-user-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #777;
+}
+
+.post-content {
+    margin-top: 10px;
+}
+
+.post-image {
+    width: 300px; /* Atur lebar sesuai kebutuhan */
+    height: 200px; /* Atur tinggi sesuai kebutuhan */
+    object-fit: cover; /* Menjaga proporsi gambar dan memotong jika perlu */
+    border: 2px solid #ddd; /* Menambahkan border */
+    border-radius: 5px; /* Menambahkan border radius untuk sudut yang lebih halus */
+    padding: 5px; /* Menambahkan padding di sekitar gambar */
+}
+
+.post-actions {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.post-actions form,
+.post-actions a {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.edit-button,
+.delete-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+
+
+.edit-button:hover {
+    background-color: #2980b9;
+}
+
