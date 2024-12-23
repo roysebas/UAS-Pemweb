@@ -72,6 +72,7 @@ Class Mahasiswa
 
 3.2 Konfigurasi Koneksi Database (5%)
 Koneksi DB
+```
 <?php
 try {
     $db_user = "root";
@@ -83,10 +84,12 @@ try {
 } catch(PDOException $e) {
     die("Connection failed: " . $e->getMessage());
 }
+```
 
 
 3.3 Manipulasi Data pada Database (10%)
 Class Mahasiswa
+```
 <?php
 class Post {
     private $db;
@@ -104,12 +107,13 @@ class Post {
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-
+```
 
 Bagian 4: State Management (Bobot: 20%)
 4.1 State Management dengan Session (10%)
 Gunakan session_start() untuk memulai session.
 Simpan informasi pengguna ke dalam session.
+```
 <?php
     // Memulai sesi PHP
     session_start();
@@ -119,11 +123,12 @@ Simpan informasi pengguna ke dalam session.
         exit;
     }
 ?>
+```
 
-Session PHP
 4.2 Pengelolaan State dengan Cookie dan Browser Storage (10%)
 Buat fungsi untuk menetapkan, mendapatkan, dan menghapus cookie.
 Cookie JavaScript
+```
 function setCookie(name, value, days) {
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -144,9 +149,11 @@ function getCookie(name) {
 
 function deleteCookie(name) {
     document.cookie = name + "=; Max-Age=-99999999;";
-    
+```
+
 Gunakan browser storage untuk menyimpan informasi secara lokal.
 Browser Storage JavaScript
+```
 function setLocalStorage(key, value) {
     localStorage.setItem(key, value);
 }
@@ -170,7 +177,7 @@ function getSessionStorage(key) {
 function removeSessionStorage(key) {
     sessionStorage.removeItem(key);
 }
-
+```
 Bagian Bonus: Hosting Aplikasi Web (Bobot: 20%)
 (5%) Apa langkah-langkah yang Anda lakukan untuk meng-host aplikasi web Anda?
 (5%) Pilih penyedia hosting web yang menurut Anda paling cocok untuk aplikasi web Anda.
