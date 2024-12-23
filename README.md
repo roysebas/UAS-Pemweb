@@ -51,7 +51,7 @@ try {
 
 3.3 Manipulasi Data pada Database (10%)
 Class Mahasiswa
-<?php
+```<?php
 class Post {
     private $db;
 
@@ -67,13 +67,13 @@ class Post {
         $stmt = $this->db->prepare("SELECT * FROM posts WHERE id = ?");
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
+    }```
 
 Bagian 4: State Management (Bobot: 20%)
 4.1 State Management dengan Session (10%)
 Gunakan session_start() untuk memulai session.
 Simpan informasi pengguna ke dalam session.
-<?php
+```<?php
     // Memulai sesi PHP
     session_start();
     // Mengecek apakah pengguna sudah login, jika ya, diarahkan ke halaman home.php
@@ -81,7 +81,7 @@ Simpan informasi pengguna ke dalam session.
         header('Location: home.php');
         exit;
     }
-?>
+?>```
 Session PHP
 4.2 Pengelolaan State dengan Cookie dan Browser Storage (10%)
 Buat fungsi untuk menetapkan, mendapatkan, dan menghapus cookie.
