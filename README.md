@@ -25,6 +25,35 @@ Parsing data dari variabel global dan lakukan validasi di sisi server.
 Simpan ke basis data termasuk jenis browser dan alamat IP pengguna.
 Pengelolaan Data dengan PHP
 
+if (isset($_POST['username'], $_POST['email'], $_POST['password'], $_POST['gender'])) {
+    // Mengambil data dari form dan melakukan sanitasi
+    $username   = $_POST['username'];
+    $email      = $_POST['email'];
+    $password   = $_POST['password'];
+    $gender     = $_POST['gender'];
+    $terms      = isset($_POST['terms']) ? 'Accepted' : 'Not Accepted';
+
+    // Hash password
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+    $browser = $_SERVER['HTTP_USER_AGENT'];
+    $ip_address = file_get_contents('https://api.ipify.org');
+    // Menyiapkan query untuk insert data ke database
+    $sql = "INSERT INTO users (username, email, password, gender, browser, ip_address) VALUES(?, ?, ?, ?, ?, ?)";
+    $stminsert = $db->prepare($sql);
+
+    // Mengeksekusi query dengan data yang diterima dari form
+    $result = $stminsert->execute([$username, $email, $hashed_password, $gender, $browser, $ip_address]);
+    if ($result) {
+        echo"Data berhasil disimpan";
+    }else {
+        echo "Terdapat error saat menyimpan data";
+    }
+}else { 
+    echo"Tidak ada data";
+}
+?>
+
 2.2 Objek PHP Berbasis OOP (10%)
 Buat sebuah objek PHP berbasis OOP yang memiliki minimal dua metode dan gunakan objek tersebut dalam skenario tertentu.
 Class Mahasiswa
