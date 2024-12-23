@@ -25,35 +25,6 @@ Parsing data dari variabel global dan lakukan validasi di sisi server.
 Simpan ke basis data termasuk jenis browser dan alamat IP pengguna.
 Pengelolaan Data dengan PHP
 
-if (isset($_POST['username'], $_POST['email'], $_POST['password'], $_POST['gender'])) {
-    // Mengambil data dari form dan melakukan sanitasi
-    $username   = $_POST['username'];
-    $email      = $_POST['email'];
-    $password   = $_POST['password'];
-    $gender     = $_POST['gender'];
-    $terms      = isset($_POST['terms']) ? 'Accepted' : 'Not Accepted';
-
-    // Hash password
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-    $browser = $_SERVER['HTTP_USER_AGENT'];
-    $ip_address = file_get_contents('https://api.ipify.org');
-    // Menyiapkan query untuk insert data ke database
-    $sql = "INSERT INTO users (username, email, password, gender, browser, ip_address) VALUES(?, ?, ?, ?, ?, ?)";
-    $stminsert = $db->prepare($sql);
-
-    // Mengeksekusi query dengan data yang diterima dari form
-    $result = $stminsert->execute([$username, $email, $hashed_password, $gender, $browser, $ip_address]);
-    if ($result) {
-        echo"Data berhasil disimpan";
-    }else {
-        echo "Terdapat error saat menyimpan data";
-    }
-}else { 
-    echo"Tidak ada data";
-}
-?>
-
 2.2 Objek PHP Berbasis OOP (10%)
 Buat sebuah objek PHP berbasis OOP yang memiliki minimal dua metode dan gunakan objek tersebut dalam skenario tertentu.
 Class Mahasiswa
@@ -61,23 +32,106 @@ Bagian 3: Database Management (Bobot: 20%)
 
 3.1 Pembuatan Tabel Database (5%)
 Class Mahasiswa
+![image](https://github.com/user-attachments/assets/32fab63c-388c-4bf4-918e-f31df490e812)
+
 
 3.2 Konfigurasi Koneksi Database (5%)
 Koneksi DB
+<?php
+try {
+    $db_user = "root";
+    $db_password = "";
+    $db_name = "uaspemweb";
+
+    $db = new PDO('mysql:host=localhost;dbname=' . $db_name . ';charset=utf8', $db_user, $db_password);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $e) {
+    die("Connection failed: " . $e->getMessage());
+}
 
 3.3 Manipulasi Data pada Database (10%)
 Class Mahasiswa
+<?php
+class Post {
+    private $db;
+
+    public function __construct($db) {
+        $this->db = $db;
+    }
+    public function getAllPosts() {
+        $stmt = $this->db->prepare("SELECT * FROM posts");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function getPostById($id) {
+        $stmt = $this->db->prepare("SELECT * FROM posts WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
 Bagian 4: State Management (Bobot: 20%)
 4.1 State Management dengan Session (10%)
 Gunakan session_start() untuk memulai session.
 Simpan informasi pengguna ke dalam session.
+<?php
+    // Memulai sesi PHP
+    session_start();
+    // Mengecek apakah pengguna sudah login, jika ya, diarahkan ke halaman home.php
+    if (isset($_SESSION['userlogin'])) {
+        header('Location: home.php');
+        exit;
+    }
+?>
 Session PHP
 4.2 Pengelolaan State dengan Cookie dan Browser Storage (10%)
 Buat fungsi untuk menetapkan, mendapatkan, dan menghapus cookie.
 Cookie JavaScript
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+function deleteCookie(name) {
+    document.cookie = name + "=; Max-Age=-99999999;";
+    
 Gunakan browser storage untuk menyimpan informasi secara lokal.
 Browser Storage JavaScript
+function setLocalStorage(key, value) {
+    localStorage.setItem(key, value);
+}
+
+function getLocalStorage(key) {
+    return localStorage.getItem(key);
+}
+
+function removeLocalStorage(key) {
+    localStorage.removeItem(key);
+}
+
+function setSessionStorage(key, value) {
+    sessionStorage.setItem(key, value);
+}
+
+function getSessionStorage(key) {
+    return sessionStorage.getItem(key);
+}
+
+function removeSessionStorage(key) {
+    sessionStorage.removeItem(key);
+}
 
 Bagian Bonus: Hosting Aplikasi Web (Bobot: 20%)
 (5%) Apa langkah-langkah yang Anda lakukan untuk meng-host aplikasi web Anda?
