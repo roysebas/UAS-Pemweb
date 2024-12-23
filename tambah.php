@@ -13,7 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_FILES['post-image']) && $_FILES['post-image']['error'] === UPLOAD_ERR_OK) {
         $imagePath = 'uploads/' . basename($_FILES['post-image']['name']);
-        move_uploaded_file($_FILES['post-image']['tmp_name'], $imagePath);
+        if (!move_uploaded_file($_FILES['post-image']['tmp_name'], $imagePath)) {
+            die('Failed to move uploaded file.');
+        }
     }
 
     $postController->store($content, $imagePath);
