@@ -1,7 +1,42 @@
 Bagian 1: Client-side Programming (Bobot: 30%)
 1.1 Manipulasi DOM dengan JavaScript (15%)
 Buat form input dengan minimal 4 elemen input (teks, checkbox, radio, dll.)
-![image](https://github.com/user-attachments/assets/3b6ee7d4-8d42-45c2-9d46-1e2612de2970)
+```
+body>
+    <div class="container" id="register">
+        <div class="form-title">Register</div>
+        <form id="registerForm" action="proses.php" method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="terms">
+                    <input type="checkbox" id="terms" name="terms"> I accept the terms and conditions
+                </label>
+            </div>
+            <div class="form-footer">
+            <p>Sudah punya akun? <a href="login.php">Login disini</a></p>
+            </div>
+            <button type="submit" id="register">Register</button>
+        </form>
+    </div>
+```
 
 Tampilkan data dari server ke dalam sebuah tabel HTML.
 ![image](https://github.com/user-attachments/assets/dc32b81f-963e-4edb-89fa-42f498170043)
