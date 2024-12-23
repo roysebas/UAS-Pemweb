@@ -116,8 +116,10 @@ Implementasikan JavaScript untuk validasi setiap input sebelum diproses oleh PHP
 
 
 **Form Validation**
-**Bagian 2: Server-side Programming (Bobot: 30%)
-2.1 Pengelolaan Data dengan PHP (20%)**
+
+**Bagian 2: Server-side Programming (Bobot: 30%)**
+
+**2.1 Pengelolaan Data dengan PHP (20%)**
 Gunakan metode POST atau GET pada formulir.
 ```
 <form id="registerForm" action="proses.php" method="POST">
