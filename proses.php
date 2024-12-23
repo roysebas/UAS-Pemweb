@@ -21,11 +21,11 @@ if (isset($_POST['username'], $_POST['email'], $_POST['password'], $_POST['gende
     // Mengeksekusi query dengan data yang diterima dari form
     $result = $stminsert->execute([$username, $email, $hashed_password, $gender, $browser, $ip_address]);
     if ($result) {
-        echo"Data berhasil disimpan";
-    }else {
+        echo "Data berhasil disimpan";
+    } else {
         echo "Terdapat error saat menyimpan data";
     }
-}else { 
-    echo"Tidak ada data";
+} else {
+    echo "Tidak ada data";
 }
 ?>

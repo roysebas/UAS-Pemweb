@@ -11,68 +11,74 @@ require_once 'config.php'; //  $db terhubung di sini
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="container" id="signup">
-        <div class="form-title">Daftar Akun</div>
-        <form action="register.php" method="POST">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            
-            <div class="radio-group">
-                <label>Jenis Kelamin:</label><br>
-                <input type="radio" id="male" name="gender" value="Laki-laki" required>
-                <label for="male">Laki-Laki</label>
-                <input type="radio" id="female" name="gender" value="Perempuan" required>
-                <label for="female">Perempuan</label>
+    <div class="container" id="register">
+        <div class="form-title">Register</div>
+        <form id="registerForm" action="proses.php" method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
             </div>
-            
-            <div class="checkbox-group">
-                <label>
-                    <input type="checkbox" id="terms" name="terms" required>
-                    Saya setuju dengan syarat dan ketentuan
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="terms">
+                    <input type="checkbox" id="terms" name="terms"> I accept the terms and conditions
                 </label>
             </div>
-            
-            <button type="submit" id="register" name="submit">Submit</button>
+            <div class="form-footer">
+            <p>Sudah punya akun? <a href="login.php">Login disini</a></p>
+            </div>
+            <button type="submit" id="register">Register</button>
         </form>
-
-        <div class="form-footer" style="margin-top: 20px;">
-            Sudah punya akun? <a href="login.php">Login disini</a>
-        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        $(function(){
-            $('#register').click(function(e){
-                
-                var valid = this.form.checkValidity();
-                
-                if(valid){
+    <script>
+        $(function () {
+            // Event handling for form submission
+            $('#registerForm').on('submit', function(e) {
+                e.preventDefault(); // Prevent default form submission
 
-                    var username    = $('#username').val();
-                    var email       = $('#email').val();
-                    var password    = $('#password').val();
-                    var gender      = $('input[name="gender"]:checked').val();
+                var valid = this.checkValidity();
 
-                    e.preventDefault();
+                if (valid) {
+                    var username = $('#username').val();
+                    var email = $('#email').val();
+                    var password = $('#password').val();
+                    var gender = $('#gender').val();
+                    var terms = $('#terms').is(':checked') ? 'Accepted' : 'Not Accepted';
+
                     $.ajax({
-                        type: 'POST',
                         url: 'proses.php',
-                        data: {username: username, email: email, password: password, gender: gender},
-                        success: function(data){
+                        type: 'post',
+                        data: {
+                            username: username,
+                            email: email,
+                            password: password,
+                            gender: gender,
+                            terms: terms
+                        },
+                        success: function(data) {
                             Swal.fire({
                                 'title': 'Selamat!',
                                 'text': data,
                                 'icon': 'success'
                             });
                         },
-                        error: function(data){
+                        error: function(data) {
                             Swal.fire({
                                 'title': 'Error!',
                                 'text': 'Data gagal disimpan',
@@ -80,14 +86,24 @@ require_once 'config.php'; //  $db terhubung di sini
                             });
                         }
                     });
-                    
-                }else{
-                    
+                } else {
+                    Swal.fire({
+                        'title': 'Error!',
+                        'text': 'Form tidak valid',
+                        'icon': 'error'
+                    });
                 }
-
-
             });
-        
+
+            // Event handling for input change
+            $('#username, #email, #password, #gender').on('input change', function() {
+                console.log('Input changed: ', $(this).attr('id'), $(this).val());
+            });
+
+            // Event handling for button click
+            $('#register').on('click', function() {
+                console.log('Register button clicked');
+            });
         });
     </script>
 </body>
