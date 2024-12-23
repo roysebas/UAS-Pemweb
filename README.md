@@ -67,7 +67,9 @@ Bagian 3: Database Management (Bobot: 20%)
 
 3.1 Pembuatan Tabel Database (5%)
 Class Mahasiswa
+
 ![image](https://github.com/user-attachments/assets/32fab63c-388c-4bf4-918e-f31df490e812)
+![image](https://github.com/user-attachments/assets/a6308a2e-7c79-4cc7-8663-906b040ad2f7)
 
 
 3.2 Konfigurasi Koneksi Database (5%)
