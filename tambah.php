@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <section id="add-post" class="add-post">
                 <form id="postForm" action="tambah.php" method="POST" enctype="multipart/form-data">
                     <textarea id="postContent" name="post-content" rows="4" placeholder="Apa yang sedang terjadi?" required></textarea>
-                    <!-- <input id="postImage" type="file" name="post-image" accept="image/*"> -->
+                    <input id="postImage" type="file" name="post-image" accept="image/*">
                     <button type="submit">Post</button>
                 </form>
             </section>
