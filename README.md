@@ -283,6 +283,13 @@ function removeSessionStorage(key) {
 **Bagian Bonus: Hosting Aplikasi Web (Bobot: 20%)**
 
     (5%) Apa langkah-langkah yang Anda lakukan untuk meng-host aplikasi web Anda?
+    -Mengunjungi website railway kemudian daftar dengan akun github
+    -Create mysql terlebih dahulu kemudian mencocokkan db nya, setelah itu deploy
+    -Deploy repo, kemudian custom domain menjadi 8080
+    -Salin Domain yang sudah digenerate dan sudah siap dipakai
     (5%) Pilih penyedia hosting web yang menurut Anda paling cocok untuk aplikasi web Anda.
+    -Railway, karena gratis dan implementasinya mudah
     (5%) Bagaimana Anda memastikan keamanan aplikasi web yang Anda host?
+    -Saya memilih Railway sebagai penyedia hosting karena gratis dan proses implementasinya sangat mudah. Railway menyediakan fitur-fitur yang memudahkan pengembangan dan hosting aplikasi kecil hingga menengah.     Untuk menjaga keamanan aplikasi web, saya menyimpan informasi sensitif seperti kredensial database di variabel lingkungan, memastikan komunikasi menggunakan HTTPS, dan mengenkripsi data sensitif seperti kata     sandi sebelum disimpan ke database. Selain itu, saya melakukan validasi input untuk mencegah serangan seperti SQL Injection dan memperbarui dependensi secara rutin
     (5%) Jelaskan konfigurasi server yang Anda terapkan untuk mendukung aplikasi web Anda.
+    -Dalam hal konfigurasi server, saya mengatur aplikasi agar berjalan di port 8080 sesuai dengan kebutuhan Railway. Railway juga mendukung load balancing otomatis, sehingga cocok untuk menangani trafik             aplikasi kecil. Saya memastikan bahwa aplikasi hanya memiliki endpoint yang benar-benar dibutuhkan untuk diakses publik dan endpoint lainnya dilindungi dengan autentikasi. Dengan semua konfigurasi ini,         aplikasi dapat berjalan dengan aman dan stabil di lingkungan hosting Railway.
