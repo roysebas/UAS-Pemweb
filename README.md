@@ -9,11 +9,12 @@ Tampilkan data dari server ke dalam sebuah tabel HTML.
 Manipulasi DOM dengan JavaScript
 1.2 Event Handling (15%)
 Tambahkan minimal 3 event yang berbeda untuk meng-handle form pada 1.1.
+Implementasikan JavaScript untuk validasi setiap input sebelum diproses oleh PHP.
 ![image](https://github.com/user-attachments/assets/47da5943-389d-4194-bb42-e1726323dbe0)
 
 ![image](https://github.com/user-attachments/assets/3694736b-bd61-42e9-a643-5c03ceaa30dc)
 
-Implementasikan JavaScript untuk validasi setiap input sebelum diproses oleh PHP.
+
 Form Validation
 Bagian 2: Server-side Programming (Bobot: 30%)
 2.1 Pengelolaan Data dengan PHP (20%)
