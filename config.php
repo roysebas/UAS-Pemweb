@@ -1,11 +1,14 @@
 <?php
 try {
-    $db_user = "root";
-    $db_password = "";
-    $db_name = "uaspemweb";
+    // Membuat koneksi ke database dengan PDO
+    $db = new PDO("mysql:host=autorack.proxy.rlwy.net;port=17462;dbname=railway;charset=utf8mb4", "root", "NKJDbLecelufPDMzpASPZtFqtWysoNBT");
 
-    $db = new PDO('mysql:host=localhost;dbname=' . $db_name . ';charset=utf8', $db_user, $db_password);
+    // Menetapkan mode error untuk PDO agar menghasilkan exception jika ada kesalahan
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
+
+
+} catch (PDOException $e) {
+    // Jika terjadi error saat koneksi ke database maka akan menampilkan pesan error
+    die("Database connection failed: " . $e->getMessage());
 }
+?>
