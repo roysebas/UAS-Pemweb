@@ -37,7 +37,7 @@ Class Mahasiswa
 
 3.2 Konfigurasi Koneksi Database (5%)
 Koneksi DB
-<?php
+```<?php
 try {
     $db_user = "root";
     $db_password = "";
@@ -47,7 +47,7 @@ try {
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch(PDOException $e) {
     die("Connection failed: " . $e->getMessage());
-}
+}```
 
 3.3 Manipulasi Data pada Database (10%)
 Class Mahasiswa
